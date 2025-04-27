@@ -40,3 +40,5 @@ python main.py
 
 
 health와 mental 중 하나라도 0이 되면 게임이 끝나니 주의하세요.
+
+made by [@sinunu](https://github.com/sinunu), [@ptaejoon](https://github.com/ptaejoon)
