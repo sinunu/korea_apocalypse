@@ -1,3 +1,7 @@
+# Game introduction
+
+아포칼립스가 된 한국에서 살아남으세요! 다양한 사건이 당신을 기다리고 있습니다.
+
 # How to install
 
 pip install -e .
