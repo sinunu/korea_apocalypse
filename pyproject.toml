@@ -1,0 +1,26 @@
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# SETUP CONFIGURATION.                                                        #
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-chat-game"
+description = "Chat game using llm."
+requires-python = ">=3.10"
+version = "0.1"
+
+dependencies = [
+    "openai",
+    "pydantic",
+    "rich",
+    "pyfiglet",
+    "pyyaml",
+]
+
+[project.scripts]
+play-chat-game = "llm_chat_game:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["llm_chat_game*"]

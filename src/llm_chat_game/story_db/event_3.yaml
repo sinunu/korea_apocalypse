@@ -1,0 +1,235 @@
+- id: 300
+  start_point: True
+
+  description: >
+    방사능에 오염된 공원을 탐색하던 중, 수풀 속에서 희미하게 빛나는 무언가가 보입니다. 물이나 식량이 담겨 있을지도 모르는 상자일 가능성이 있지만, 방사능에 오염되어 있을 위험도 큽니다. 나뭇가지들이 부서진 채 사방에 흩어져 있고, 주위는 고요하기만 합니다.
+
+  options:
+  - description: 수풀 속으로 다가가 빛나는 물체를 조사한다.
+    goto: 301
+  - description: 장비를 사용해 방사능 수치를 측정해본다.
+    goto: 302
+  - description: 공원을 떠나 다른 곳을 탐험한다.
+    goto: 310
+  - description: 수풀 속에 돌을 던져 반응을 확인해본다.
+    visible: False
+    goto: 303
+  - description: 수풀 근처에 숨어서 주변 상황을 관찰한다.
+    visible: False
+    goto: 304
+  - description: 다른 생존자들이 있을 수 있으니 신호를 보내본다.
+    visible: False
+    goto: 311
+  - description: 방독면을 착용한 뒤 접근해본다.
+    visible: False
+    goto: 312
+  - description: 주변에서 쓸만한 막대기를 찾아 수풀을 찔러본다.
+    visible: False
+    goto: 313
+
+- id: 301
+  description: >
+    수풀 속으로 들어가 조심스럽게 빛나는 물체를 조사해보니, 오래된 방사능 방호복과 낡은 금속 상자가 있습니다. 상자는 자물쇠로 잠겨 있으며, 안에 무엇이 들었는지 확인할 수 없습니다. 방호복은 닳아 있지만 일부는 사용할 수 있을 것 같습니다.
+
+  options:
+  - description: 자물쇠를 강제로 열어본다.
+    goto: 305
+  - description: 상자를 들고 안전한 장소로 이동한다.
+    goto: 306
+  - description: 상자와 방호복을 두고 공원을 떠난다.
+    goto: 310
+  - description: 방호복을 입고 상자를 열어본다.
+    visible: False
+    goto: 307
+  - description: 방호복을 확인하며 더 이상 사용 가능한지 살펴본다.
+    visible: False
+    goto: 314
+  - description: 상자 옆의 흙을 파서 상자를 묻고 다른 날 다시 온다.
+    visible: False
+    goto: 315
+
+- id: 302
+  description: >
+    장비를 사용해 방사능 수치를 측정하니, 이 지역의 방사능 수치가 안전 범위를 넘어서고 있습니다. 오래 머물면 위험할 수 있지만, 잠시 동안 조사하는 것은 괜찮을 것 같습니다.
+
+  options:
+  - description: 재빨리 빛나는 물체를 조사한다.
+    goto: 301
+  - description: 방사능이 위험하니 공원을 떠난다.
+    goto: 310
+  - description: 방호복을 꺼내 입고 접근한다.
+    visible: False
+    goto: 312
+  - description: 방사능 수치를 낮추기 위해 주변에 물을 뿌려본다.
+    visible: False
+    goto: 316
+
+- id: 303
+  description: >
+    돌을 던지자 수풀에서 약한 소리가 들립니다. 잠시 후, 수풀 사이로 어린 다람쥐 한 마리가 뛰어나와 놀란 듯 주위를 둘러봅니다. 다람쥐가 달아난 후에도 수풀 속에서 빛이 계속해서 반짝이고 있습니다.
+
+  options:
+  - description: 수풀 속으로 다가가 빛나는 물체를 조사한다.
+    goto: 301
+  - description: 장비를 사용해 방사능 수치를 측정해본다.
+    goto: 302
+  - description: 공원을 떠난다.
+    goto: 310
+  - description: 작은 소리를 내어 주변에 다른 생명체가 있는지 확인한다.
+    visible: False
+    goto: 317
+
+- id: 304
+  description: >
+    수풀 근처에 몸을 숨기고 주변을 살펴보니, 수풀 속에서 가끔 빛이 반짝이는 것을 볼 수 있습니다. 아무도 없는 듯 조용한 분위기이지만, 불안한 기분이 계속해서 맴돕니다.
+
+  options:
+  - description: 수풀 속으로 다가가 빛나는 물체를 조사한다.
+    goto: 301
+  - description: 방사능 수치를 다시 측정해본다.
+    goto: 302
+  - description: 공원을 떠난다.
+    goto: 310
+  - description: 다가가려던 중 갑작스레 생각을 바꾸고 다른 생존자를 찾아본다.
+    visible: False
+    goto: 318
+
+- id: 305
+  description: >
+    자물쇠를 강제로 열자, 안에는 작은 광석 하나가 들어 있습니다. 나중에 돈으로 바꿀 수 있을 듯 합니다. 그러나 열던 중 방사능 오염된 먼지가 손에 묻어, 당신의 건강 상태에 영향을 미칩니다.
+
+  affect_status:
+    health: -1
+    money: 1
+  goto: 310
+
+- id: 306
+  description: >
+    상자를 들고 조용히 공원을 빠져나옵니다. 이 지역은 위험해 보였지만, 상자 안에 유용한 자원이 있을 가능성도 있습니다. 안전한 장소에 도착한 후 상자를 열어볼 계획입니다.
+
+  options:
+  - description: 상자를 열어본다.
+    goto: 305
+  - description: 상자를 안전한 장소에 두고 떠난다.
+    goto: 310
+  - description: 상자 안을 탐색할 도구를 찾아본다.
+    visible: False
+    goto: 319
+
+- id: 307
+  description: >
+    방호복을 입고 상자를 열어보니, 작은 광석 하나가 들어 있습니다. 방호복 덕분에 방사능에 직접 노출되지 않고 안전하게 물품을 확보할 수 있었습니다.
+
+  affect_status:
+    money: 1
+  goto: 310
+
+- id: 310
+  description: >
+    공원을 떠나며 긴장감에서 벗어납니다. 위험한 구역에서의 탐색이 끝났음을 실감합니다.
+
+- id: 311
+  description: >
+    다른 생존자가 있을 가능성을 두고 신호를 보내보지만, 아무런 반응이 돌아오지 않습니다. 이 지역에 다른 사람은 없는 것 같아 보입니다.
+
+  options:
+  - description: 수풀 속으로 다가가 빛나는 물체를 조사한다.
+    goto: 301
+  - description: 공원을 떠난다.
+    goto: 310
+
+- id: 312
+  description: >
+    방독면을 착용하고 수풀 속으로 조심스럽게 다가갑니다. 방사능에 조금 더 안전하게 접근할 수 있게 되어, 상자를 탐색할 수 있습니다.
+
+  options:
+  - description: 상자를 열어본다.
+    goto: 305
+  - description: 상자를 들고 안전한 장소로 이동한다.
+    goto: 306
+
+- id: 313
+  description: >
+    주변에서 막대기를 찾아 수풀을 찔러보니, 상자 속에서 약간의 금속 소리가 들립니다. 반응은 없고, 상자는 그대로인 것 같습니다.
+
+  options:
+  - description: 막대기로 더 세게 찔러 상자를 조사한다.
+    goto: 301
+  - description: 공원을 떠난다.
+    goto: 310
+
+- id: 314
+  description: >
+    방호복을 확인해보니, 다소 낡았지만 방사능을 일시적으로 차단하는 데는 충분해 보입니다. 방호복을 착용하고 상자를 조사해보기로 합니다.
+
+  options:
+  - description: 상자를 열어본다.
+    goto: 307
+
+- id: 315
+  description: >
+    상자를 흙 속에 묻어두고 나중에 다시 찾기로 결정했습니다. 안전한 장소에서 물품을 보관하기 위해 기억해 두고 공원을 떠납니다.
+
+  goto: 310
+
+- id: 316
+  description: >
+    주변에 물을 뿌리자 방사능 수치가 약간 떨어지는 것을 느낍니다. 이제 수풀 속을 좀 더 안전하게 조사할 수 있을 것 같습니다.
+
+  options:
+  - description: 수풀 속으로 다가가 빛나는 물체를 조사한다.
+    goto: 301
+
+- id: 317
+  description: >
+    작은 소리를 내자, 멀리서 또 다른 작은 소리가 들려옵니다. 누군가 당신을 따라오고 있을지도 모릅니다.
+
+  options:
+  - description: 급히 주변을 둘러보며 안전을 확보한다.
+    goto: 304
+  - description: 조용히 숨어 상대를 기다려본다.
+    goto: 320
+
+- id: 318
+  description: >
+    수풀 속의 물체를 무시하고 공원 주변을 조사하던 중, 멀리서 미약한 발자국 소리가 들려옵니다. 누군가가 당신을 몰래 쫓고 있을지도 모릅니다.
+
+  options:
+  - description: 발자국 소리를 따라가본다.
+    goto: 320
+  - description: 소리가 들린 방향과 반대쪽으로 도망친다.
+    goto: 310
+
+- id: 319
+  description: >
+    공구를 찾아 상자 안을 탐색해보니, 추가적인 비상 식량과 희귀한 약품을 발견했습니다. 이 물품들은 당신의 생존에 큰 도움이 될 것입니다.
+
+  affect_status:
+    health: 1
+  goto: 310
+
+- id: 320
+  description: >
+    숨어서 기다리자, 수풀 속에서 몰래 다가오던 누군가의 모습을 볼 수 있습니다. 다가오는 사람은 약탈자처럼 보이며, 당신을 노리고 있는 듯합니다. 더 깊이 숨을지, 대면할지 선택해야 합니다.
+
+  options:
+  - description: 상대를 급습하여 선제공격을 한다.
+    goto: 321
+  - description: 그대로 숨어 상대가 지나가기를 기다린다.
+    goto: 310
+  - description: 소리를 내어 약탈자에게 경고한다.
+    goto: 322
+
+- id: 321
+  description: >
+    당신은 약탈자를 급습하여 기습 공격을 시도합니다. 예상치 못한 공격에 상대는 당황해 하며 공격합니다. 당신은 약간의 상처를 입긴 했지만 상대를 물리치고 그의 가방에서 약간의 돈을 얻었습니다.
+
+  affect_status:
+    health: -1
+    money: 1
+  goto: 310
+
+- id: 322
+  description: >
+    소리를 내어 약탈자에게 경고하자, 그는 놀란 듯 멈추더니 황급히 도망갑니다. 더 이상의 위험을 느끼지 않은 당신은 다시 길을 떠납니다.
+  goto: 310
